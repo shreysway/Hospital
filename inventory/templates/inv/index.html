@@ -1,0 +1,57 @@
+{% extends 'inv/base.html' %}
+
+{% block body %}
+
+  <div>
+
+<img src="https://fuh.care/wp-content/uploads/2020/01/FUH-Logo-to-BG-website.png" srcset="https://fuh.care/wp-content/uploads/2020/01/FUH-Logo-to-BG-website.png 1x" width="400" height="54" alt="Fakeeh University Hospital Logo" data-retina_logo_url="" class="fusion-standard-logo" style="">
+  </div>
+
+<div class="add_buttons">
+
+    <div class="button-group">
+
+      <a href="{% url 'display_desktops' %}" class="btn btn-primary btn-md btn-trim" role="button"> Add Patient</a>
+      <a href="{% url 'add_desktop' %}" class="btn btn-warning btn-sm btn-pad" role="button"> +</a>
+
+
+    </div>
+  <table class="table table-hover">
+<style>
+      table,
+      th,
+      td {
+        padding: 10px;
+        border: 2px solid #000000;
+        border-radius: 20px;
+        background-color: #EAFAF1;
+        text-align: center;  
+	}
+    </style>
+    <thead>
+      <tr>
+        <th style="background-color:#FF0000">Doctor Name</th>
+	<th style="background-color:#00FF00">Specialization</th>
+        <th>Patient</th>
+        <th>Issues</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      {% for item in items %}
+
+      <tr>
+        <td>{{ item.DoctorName}}</td>
+	<td>{{ item.Specialization}}</td>
+        <td>{{ item.Patient}}</td>
+        <td>{{ item.issues }}</td>
+
+
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}
